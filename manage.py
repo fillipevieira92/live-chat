@@ -10,10 +10,10 @@ socket = SocketIO(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('login.html')
 
 
 
 
 if __name__ == '__main__':
-    socket.run(app, '0.0.0.0',8000)
+    socket.run(app, '0.0.0.0',8000, debug=True)
