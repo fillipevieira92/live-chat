@@ -11,4 +11,40 @@
 
 
 {% block content %}
+<main>
+    <section>
+        <header align="center" class="m-0">
+            <img src="{{ url_for('static', filename='img/logo-fundo-branco.png') }}" width="200" alt="logo-fundo-branco">
+        </header>
+        <div class="container">
+            <div class="user row">
+                <div class="icone text-center col-2 pb-2">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="username col">
+                    <span>@{{username}}</span>
+                </div>
+            </div>
+            <table class="table table-borderless rooms">
+                <tbody>
+                    <tr>
+                        <td>Exemplo de Nome</td>
+                        <td style="text-align: right;">1<i class="bi m-2 pb-2 bi-people-fill"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Exemplo de Nome</td>
+                        <td style="text-align: right;">2<i class="bi m-2 pb-2 bi-people-fill"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Exemplo de Nome</td>
+                        <td style="text-align: right;">10<i class="bi m-2 pb-2 bi-people-fill"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div align="center">
+                <button class="button button-salmao">+ Criar nova sala</button>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}

@@ -13,13 +13,13 @@ def appController(app):
         return redirect(url_for('room', username=request.form.get('username')))
 
     
-    @app.route("/room", methods=['GET'])
+    @app.route("/rooms", methods=['GET'])
     def room():
         username = request.args['username']
         
-        pass
+        return render_template('rooms.html', username=username)
     
-    @app.route("/room", methods=['POST'])
+    @app.route("/rooms", methods=['POST'])
     def set_room():
         pass
     
