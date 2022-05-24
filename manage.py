@@ -1,18 +1,14 @@
-from distutils.log import debug
 from flask import Flask, request, render_template, json
 from flask_socketio import SocketIO
 
+from backend.controllers.app import appController
 
-app = Flask('__main__')
+
+app = Flask('__main__', template_folder='frontend/templates', static_folder='frontend/static')
+
 socket = SocketIO(app)
 
-
-
-@app.route('/')
-def index():
-    return render_template('login.html')
-
-
+appController(app)
 
 
 if __name__ == '__main__':
