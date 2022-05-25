@@ -4,16 +4,17 @@ class db:
 
     def __init__(self):
 
-        self.conn = psycopg2.connect(host='localhost', database='db_livechat', user='postgres', password='postgres')
+        self.conn = psycopg2.connect(host='db', port=5432, user='postgres', password='postgres')
         self.cursor = self.conn.cursor()
-        self.cursor.execute("CREATE TABLE IF NOT EXISTS rooms (ID PRIMARY KEY AUTOINCREMENT, NAME VARCHAR(50), ONLINE INTEGER;)")
-        self.cursor.execute("CREATE TABLE IF NOT EXISTS users (ID PRIMARY KEY AUTOINCREMENT, USERNAME VARCHAR(50), SESSION varchar(100);)")
-        self.cursor.execute("CREATE TABLE IF NOT EXISTS chat (ID PRIMARY KEY AUTOINCREMENT, ID_ROOM INTEGER, USERNAME VARCHAR(50), MESSAGE TEXT, DATETIME TEXT;)")
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS rooms (id SERIAL NOT NULL PRIMARY KEY, name VARCHAR(50), online INTEGER);")
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS users (id SERIAL NOT NULL PRIMARY KEY, username VARCHAR(50), session varchar(100));")
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS chat (id SERIAL NOT NULL PRIMARY KEY, id_room INTEGER, username VARCHAR(50), message TEXT, DATETIME TIMESTAMP);")
         self.conn.commit()
 
 
     def set_room(self, nome):
-        pass
+        self.cursor.execute(f"INSERT INTO rooms (name, online) VALUES('{nome}',{0})")
+        self.conn.commit()        
 
 
     def set_user(self, username, session):
@@ -25,7 +26,8 @@ class db:
 
 
     def get_room(self):
-        pass
+        self.cursor.execute("SELECT * FROM rooms")
+        return [row for row in self.cursor]         
 
 
     def get_user(self):

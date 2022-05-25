@@ -1,7 +1,12 @@
 from flask import Flask, redirect, render_template, request, jsonify, url_for
+from backend.services.room import Room
 import json
 
+room_obj = Room()
+USERNAME = ''
+
 def appController(app):
+  
 
     @app.route("/", methods=['GET'])
     def login():
@@ -10,16 +15,21 @@ def appController(app):
 
     @app.route("/login", methods=['POST'])
     def set_username():
-        return redirect(url_for('room', username=request.form.get('username')))
+        global USERNAME
+        USERNAME = request.form.get('username')
+        return redirect(url_for('rooms'))
 
     
     @app.route("/rooms", methods=['GET'])
-    def room():
-        username = request.args['username']
+    def rooms():
         
-        return render_template('rooms.html', username=username)
+        global USERNAME
+        rooms_list = room_obj.find_all()
+        return render_template('rooms.html', username=USERNAME, rooms_list=rooms_list)
     
     @app.route("/rooms", methods=['POST'])
     def set_room():
-        pass
+        room_obj.create_room(request.form.get('sala_nome'))
+        return redirect(url_for('rooms'))
+        
     

@@ -16,35 +16,63 @@
         <header align="center" class="m-0">
             <img src="{{ url_for('static', filename='img/logo-fundo-branco.png') }}" width="200" alt="logo-fundo-branco">
         </header>
-        <div class="container">
-            <div class="user row">
-                <div class="icone text-center col-2 pb-2">
-                    <i class="bi bi-person-fill"></i>
-                </div>
-                <div class="username col">
-                    <span>@{{username}}</span>
-                </div>
-            </div>
+        
+        <div class="username mb-2">
+            <strong>Username: </strong>
+            <span>@{{username}}</span>
+        </div>        
+        <div class="container">            
             <table class="table table-borderless rooms">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col" colspan="3">Salas disponíveis</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOME</th>
+                        <th style="text-align: right;" scope="col">Online</th>
+                    </tr>
+                </thead>
                 <tbody>
+                    {% for room in rooms_list %}
                     <tr>
-                        <td>Exemplo de Nome</td>
-                        <td style="text-align: right;">1<i class="bi m-2 pb-2 bi-people-fill"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Exemplo de Nome</td>
-                        <td style="text-align: right;">2<i class="bi m-2 pb-2 bi-people-fill"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Exemplo de Nome</td>
-                        <td style="text-align: right;">10<i class="bi m-2 pb-2 bi-people-fill"></i></td>
-                    </tr>
+                        <td>{{room[0]}}</td>
+                        <td>{{room[1]}}</td>
+                        <td style="text-align: right;">{{room[2]}}<i class="bi m-2 pb-2 bi-people-fill"></i></td>
+                    </tr>                    
+                    {% endfor %}
                 </tbody>
             </table>
-            <div align="center">
-                <button class="button button-azul-escuro">+ Criar nova sala</button>
-            </div>
+        </div>
+        <div align="center">
+            <button class="button button-azul-escuro" data-bs-toggle="modal" data-bs-target="#modalCriarSala">
+                <strong>+</strong> Criar nova sala
+            </button>
         </div>
     </section>
+    
+
+<!-- Modal Criar Nova Sala -->
+<div class="modal fade" id="modalCriarSala" tabindex="-1" aria-labelledby="criarSalaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Criar Nova Sala</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/rooms" method="post">
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control input-text" name="sala_nome" id="sala_nome" placeholder="Nome da sala" required>
+                        <label for="sala_nome">Nome da sala</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="button button-outline-salmao">Criar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </main>
 {% endblock %}

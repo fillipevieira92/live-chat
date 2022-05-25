@@ -14,11 +14,12 @@ main>section>.container{
     width: 40vw;
     min-width: 400px;
     min-height: 50vh;
+    max-height: 30vh;
+    overflow-y: auto;
     /* background-color: var(--branco-gelo); */
     box-shadow: 0 .3rem .5rem rgba(0,0,0,0.3);
     padding: 1rem 1rem .3rem 1rem;
-    border-radius: .8rem;
-    
+    border-radius: .8rem;        
 }
 main>section>.container>.user{
     margin-left: 1rem;
@@ -55,6 +56,5 @@ table i{
 }
 .button{
     margin-top: 2rem;
-    font-size: .8rem;
-    color: var(--branco-gelo);
+    font-size: .8rem;    
 }
