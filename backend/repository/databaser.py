@@ -28,14 +28,21 @@ class db:
         self.cursor.execute(f"SELECT * FROM users WHERE id={id}")
         return [row for row in self.cursor]
 
+    def find_user_by_username(self, username):
+        self.cursor.execute(f"SELECT username FROM users WHERE username='{username}'")
+        return [row for row in self.cursor]
 
     def set_user(self, username, session=None, id=None):
 
         if not session:
-            self.cursor.execute(f"INSERT INTO users (username, session) VALUES('{username}','{session}')")
-            self.conn.commit()  
-            self.cursor.execute(f"SELECT id FROM users WHERE username='{username}'")
-            return [row for row in self.cursor][0][0]
+            try:
+                self.cursor.execute(f"INSERT INTO users (username, session) VALUES('{username}','{session}')")
+                self.conn.commit()  
+                self.cursor.execute(f"SELECT id FROM users WHERE username='{username}'")
+            except:
+                return "Já possui alguem usando esse username"
+            else:
+                return [row for row in self.cursor][0][0]
         else:
             self.cursor.execute(f"UPDATE users SET session='{session}' WHERE id={id}")
             self.conn.commit()  

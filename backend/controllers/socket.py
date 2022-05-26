@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template, request, jsonify, url_for
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, send, emit
 
 from backend.services.room import Room
 from backend.services.user import User
@@ -34,13 +34,12 @@ def socketController(app, socket):
 
         return render_template('room.html', username=USERNAME, user_id=USER_ID, room_id=ROOM_ID)
         
+    # ----------------------- SOCKET EVENTS ----------------------- #
+    @socket.on('connect_event', namespace='/chat')
+    def connect(data):
+        user.set_user_session(data['user_session'],data['user_id'])
+        socket.emit('teste')
 
-    @socket.on('connect')
-    def connect():
-        pass
 
-    
 
-    @socket.on('disconnect')
-    def disconnect():
-        pass
+        
