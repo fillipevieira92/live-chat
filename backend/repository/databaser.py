@@ -20,7 +20,7 @@ class db:
     def set_room(self, nome):
         self.cursor.execute(f"INSERT INTO rooms (name, online) VALUES('{nome}',{0})")
         self.conn.commit()        
-        self.cursor.execute(f"SELECT id FROM users WHERE name='{nome}'")
+        self.cursor.execute(f"SELECT id FROM rooms WHERE name='{nome}'")
         return [row for row in self.cursor][0][0]
 
 
