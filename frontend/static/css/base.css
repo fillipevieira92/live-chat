@@ -4,7 +4,7 @@
 }
 
 :root{
-    --azul-escuro:#1D5168;
+    --azul-escuro:#164C64;
     --azul-claro:#B2E7E8;
     --verde-claro:#8FB9AA;
     --amarelo-claro:#F2D096;
@@ -19,6 +19,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 .button{
     padding: .8rem 3rem;

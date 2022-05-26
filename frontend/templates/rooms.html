@@ -3,10 +3,10 @@
 
 {% block head %}
 <!-- CSS -->
-<link rel="stylesheet" href="{{ url_for('static', filename='css/room.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/rooms.css') }}">
 
 <!-- Javascript -->
-<script src="{{ url_for('static', filename='js/room.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/rooms.js') }}" defer></script>
 {% endblock %}
 
 
@@ -20,6 +20,8 @@
         <div class="username mb-2">
             <strong>Username: </strong>
             <span>@{{username}}</span>
+            <input type="hidden" name="username" id="username" value="{{username}}">
+            <input type="hidden" name="user_id" id="user_id" value="{{user_id}}">
         </div>        
         <div class="container">            
             <table class="table table-borderless rooms">
@@ -35,7 +37,7 @@
                 </thead>
                 <tbody>
                     {% for room in rooms_list %}
-                    <tr>
+                    <tr id="{{room[0]}}" onclick="redirect(this.id)">
                         <td>{{room[0]}}</td>
                         <td>{{room[1]}}</td>
                         <td style="text-align: right;">{{room[2]}}<i class="bi m-2 pb-2 bi-people-fill"></i></td>

@@ -11,5 +11,5 @@ class Room:
 
 
     def create_room(self, nome):
-        self.db.set_room(nome)
+        return self.db.set_room(nome)
 
