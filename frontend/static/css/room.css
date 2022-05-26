@@ -1,0 +1,100 @@
+main{
+    width: 100%;
+    height: 100%;
+    background-color: var(--azul-escuro);    
+    margin: 0;
+    padding: 0;
+}
+main>section{
+    background-color: var(--amarelo-claro);
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: row;
+}
+aside{
+    height: 100%;
+    width: 20%;
+    padding: 1rem;
+    min-width: 300px;
+    background-color: var(--azul-escuro);
+}
+aside>.people-online{
+    background-color: var(--branco-gelo);
+    box-shadow: 0 0 1rem rgba(0,0,0,0.4);
+    border-radius: .8rem;
+    width: 100%;
+    height: 100%;
+}
+.chat-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    background-color: var(--azul-escuro);    
+    padding: 1rem;
+}
+.chat-msgs{
+    background-image: linear-gradient(to top, #909090, #ccc);
+    width: 100%;
+    height: 100%;
+    border-radius: .8rem;
+    padding: .5rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    
+    overflow-y: auto;    
+}
+.msg-row{
+    width: 100%;
+}
+.send-msg{    
+    background-color: none;
+    width: 100%;
+    height: 10%;    
+}
+.send-msg>.input-group{box-shadow: 0 0 1rem rgba(0,0,0,0.4);}
+.input-group>input{font-size: .8rem;}
+.input-group>button{font-size: .8rem;}
+
+.msg{
+    display: flexbox;
+    float: left;
+    width: fit-content;
+    max-width: 65%;
+    background-color: #ff714a;
+    color: var(--branco-gelo);
+    border-radius: .8rem;
+    padding: .5rem;    
+    font-size: .8rem;
+}
+
+.msg-self{
+    float: right !important;
+    background-color:#db5732 !important;    
+}
+
+/* ScrollBar */
+
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: var(--azul-escuro);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--azul-escuro);
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }

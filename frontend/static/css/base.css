@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --azul-escuro:#164C64;
+    --azul-claro:#B2E7E8;
+    --verde-claro:#8FB9AA;
+    --amarelo-claro:#F2D096;
+    --salmao:#FF8A76;
+    --branco-gelo:#F9F9F9;
+}
+
+body{
+    margin: 0;
+    padding: 0;    
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--salmao);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.button{
+    padding: .8rem 3rem;
+    border: none;
+    border-radius: .4rem;
+    color: #f5f5f5;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 150ms all ease-in-out;
+    cursor: pointer;    
+    background: none;
+}
+
+.button:active{box-shadow: 0 0 .4rem rgba(0,0,0,0.8);}
+.button:hover{opacity: .9;}
+
+.button-azul-escuro{background-color: var(--azul-escuro);}
+.button-verde{background-color: var(--verde-claro);}
+.button-azul-claro{background-color: var(--azul-claro);}
+.button-salmao{background-color: var(--salmao);}
+.button-amarelo{background-color: var(--amarelo-claro);}
+
+.button-outline-azul-escuro{border:.13rem solid var(--azul-escuro); color: var(--azul-escuro);}
+.button-outline-verde{border:.13rem solid var(--verde-claro); color: var(--azul-escuro);}
+.button-outline-azul-claro{border:.13rem solid var(--azul-claro); color: var(--azul-escuro);}
+.button-outline-salmao{border:.13rem solid var(--salmao); color: var(--azul-escuro);}
+.button-outline-amarelo{border:.13rem solid var(--amarelo-claro); color: var(--azul-escuro);}
+
+.button-outline-azul-escuro:hover{background-color: var(--azul-escuro); color: var(--branco-gelo);}
+.button-outline-verde:hover{background-color: var(--verde-claro); color: var(--branco-gelo);}
+.button-outline-azul-claro:hover{background-color: var(--azul-claro); color: var(--branco-gelo);}
+.button-outline-salmao:hover{background-color: var(--salmao); color: var(--branco-gelo);}
+.button-outline-amarelo:hover{background-color: var(--amarelo-claro); color: var(--branco-gelo);}
+
+.disabled{
+    opacity: .7 !important;
+    cursor: default !important;
+    box-shadow: none !important;
+}

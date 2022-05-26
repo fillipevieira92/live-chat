@@ -1,7 +1,20 @@
 from flask import Flask, redirect, render_template, request, jsonify, url_for
+
+from backend.services.room import Room
+from backend.services.user import User
+from backend.controllers.socket import socketController
+
 import json
 
+room = Room()
+user = User()
+
+USERNAME = ''
+USER_ID = -1
+ROOM_ID = -1
+
 def appController(app):
+  
 
     @app.route("/", methods=['GET'])
     def login():
@@ -10,16 +23,26 @@ def appController(app):
 
     @app.route("/login", methods=['POST'])
     def set_username():
-        return redirect(url_for('room', username=request.form.get('username')))
+        global USERNAME, USER_ID
+
+        USERNAME = request.form.get('username')
+        USER_ID = user.create_user(request.form.get('username'))       
+
+        return redirect(url_for('rooms'))
 
     
-    @app.route("/room", methods=['GET'])
-    def room():
-        username = request.args['username']
-        
-        pass
+    @app.route("/rooms", methods=['GET'])
+    def rooms():
+        global USERNAME, USER_ID
+
+        return render_template('rooms.html', username=USERNAME, user_id=USER_ID, rooms_list=room.find_all())
     
-    @app.route("/room", methods=['POST'])
+
+    @app.route("/rooms", methods=['POST'])
     def set_room():
-        pass
+        global ROOM_ID
+        ROOM_ID = room.create_room(request.form.get('sala_nome'))
+
+        return redirect(url_for('rooms'))
+        
     

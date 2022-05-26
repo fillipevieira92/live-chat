@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, json
 from flask_socketio import SocketIO
 
 from backend.controllers.app import appController
+from backend.controllers.socket import socketController
 
 
 app = Flask('__main__', template_folder='frontend/templates', static_folder='frontend/static')
@@ -9,6 +10,7 @@ app = Flask('__main__', template_folder='frontend/templates', static_folder='fro
 socket = SocketIO(app)
 
 appController(app)
+socketController(app, socket)
 
 
 if __name__ == '__main__':
