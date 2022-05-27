@@ -1,5 +1,6 @@
 from flask import Flask, redirect, render_template, request, jsonify, url_for
 from flask_socketio import SocketIO, send, emit
+from datetime import datetime
 
 from backend.services.room import Room
 from backend.services.user import User
@@ -35,11 +36,24 @@ def socketController(app, socket):
         return render_template('room.html', username=USERNAME, user_id=USER_ID, room_id=ROOM_ID)
         
     # ----------------------- SOCKET EVENTS ----------------------- #
+    
+    # Funçao que recebe novas conexoes ao socket.
     @socket.on('connect_event', namespace='/chat')
     def connect(data):
+        time = f'{str(datetime.now().hour).zfill(2)}:{str(datetime.now().minute).zfill(2)}'
+        print('## SOCKET user_id -> ', data['user_id'], USER_ID)
         user.set_user_session(data['user_session'],data['user_id'])
-        socket.emit('teste')
+        
+        send({"username":data['username'], "user_session":data['user_session'], "time":time, "msg":"Acabou de entrar."}, broadcast=True)
+    # TODO: Pegar o id da sala e retornar um send() contendo o historico das mensagens apenas para quem esta se conectando.
 
-
+    
+    # Função de envio de mensagens para todos os usuarios.
+    @socket.on('message', namespace='/chat')
+    def message(data):
+        # TODO: Pegar as informaçoes do front e guardar na tabela do chat.
+        # TODO: Pegar essas mesmas informaçoes e retornar em Broadcast para todos os users daquela sala.
+        
+        pass
 
         

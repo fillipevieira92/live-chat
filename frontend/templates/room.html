@@ -14,8 +14,8 @@
 {% block content %}
 <main>
     <header align="center">
-        <button onclick="window.location.href = '/'" class="float-start button button-salmao m-3 mb-0 p-4 pt-2 pb-2">< Voltar</button>
-        <img src="{{ url_for('static', filename='img/logo-fundo-azul.png') }}" width="120px" alt="">
+        <button onclick="window.location.href = '/'" class="float-start button button-azul-escuro m-3 mb-0 p-4 pt-2 pb-2">< Voltar</button>
+        <img src="{{ url_for('static', filename='img/logo-fundo-branco.png') }}" width="120px" alt="">
     </header>
     
     <input type="hidden" id="username" value="{{username}}">
@@ -41,7 +41,7 @@
         </aside>
         <div class="chat-box">
             <div class="chat-msgs">
-                <!-- MENSAGENS DE TESTE -->
+                <!-- MENSAGENS DE TESTE 
                 <div class="msg-row">
                     <div class="msg mb-1">
                         <strong class="msg-user">
@@ -133,11 +133,13 @@
                         </p>
                     </div>
                 </div>
+                -->
             </div>
+            
             <div class="send-msg pt-2">
                 <div class="input-group">
                     <input class="form-control" type="text">
-                    <button class="button button-salmao">Sair</button>
+                    <button class="button button-azul-escuro">Sair</button>
                     <i class="bi bi-send"></i>
                 </div>
             </div>
