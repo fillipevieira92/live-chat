@@ -21,18 +21,19 @@ def socketController(app, socket):
     @app.route('/chat')
     def get_chat_page(username=None, user_id=None, room_id=None):
         global USERNAME, USER_ID, ROOM_ID
-
+        print('#######  ### ##### get_chat_page')
+        
         try:
             data = json.loads(request.args['data'])
             USERNAME, USER_ID, ROOM_ID = data['username'], data['user_id'], data['room_id']
         except:
             pass
         else:
-            return jsonify({'response':200})
+            return jsonify({'response':'ok'})
         
         if username and user_id and room_id:
             USERNAME, USER_ID, ROOM_ID = username, user_id, room_id
-
+        
         return render_template('room.html', username=USERNAME, user_id=USER_ID, room_id=ROOM_ID)
         
     # ----------------------- SOCKET EVENTS ----------------------- #

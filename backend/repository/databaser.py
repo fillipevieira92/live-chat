@@ -37,6 +37,7 @@ class db:
         if not session:
             self.cursor.execute(f"INSERT INTO users (username, session) VALUES('{username}','{session}')")
             self.conn.commit()
+            return self.find_user_by_username(username)[0]
 
         else:
             print('## DB user_id -> ', user_id)
