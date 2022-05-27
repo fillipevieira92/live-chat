@@ -79,6 +79,7 @@ aside>.people-online>.user-online:hover{
     float: left;
     width: fit-content;
     max-width: 65%;
+    min-width: 20%;
     background-color: #246b8a;
     color: var(--branco-gelo);
     border-radius: .8rem;
