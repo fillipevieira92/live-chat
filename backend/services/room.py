@@ -13,3 +13,8 @@ class Room:
     def create_room(self, nome):
         return self.db.set_room(nome)
 
+    def update_online_number(self, room_id):
+        self.db.update_room(room_id)
+
+    def list_online_users(self, room_id):
+        return self.db.get_users_by_room(room_id)

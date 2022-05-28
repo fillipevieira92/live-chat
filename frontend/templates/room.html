@@ -14,116 +14,29 @@
 {% block content %}
 <main>
     <header align="center">
-        <button onclick="window.location.href = '/'" class="float-start button button-salmao m-3 mb-0 p-4 pt-2 pb-2">< Voltar</button>
-        <img src="{{ url_for('static', filename='img/logo-fundo-azul.png') }}" width="120px" alt="">
+        <button onclick="logout()" class="float-start button button-azul-escuro m-3 mb-0 p-4 pt-2 align-top pb-2">< Sair</button>
+        <img src="{{ url_for('static', filename='img/logo-fundo-branco.png') }}" width="120px" alt="">
     </header>
+    
+    <input type="hidden" id="username" value="{{username}}">
+    <input type="hidden" id="room_id" value="{{room_id}}">
+    <input type="hidden" id="user_id" value="{{user_id}}">
+
     <section class="">    
         <aside>
             <div class="people-online">
-
+                <!-- Lista com usuários online -->
             </div>
         </aside>
         <div class="chat-box">
             <div class="chat-msgs">
-                <!-- MENSAGENS DE TESTE -->
-                <div class="msg-row">
-                    <div class="msg mb-1">
-                        <strong class="msg-user">
-                            Usuario 1
-                        </strong>
-                        <p class="msg-body mb-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, unde perspiciatis maiores quo possimus ratione soluta incidunt? Atque, magni perferendis!
-                        </p>
-                        <p class="msg-time float-end m-0">
-                            14:47
-                        </p>
-                    </div>
-                </div>
-                <div class="msg-row">
-                    <div class="msg msg-self mb-1">
-                        <strong class="msg-user">
-                            Fillipe Vieira
-                        </strong>
-                        <p class="msg-body mb-0">
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                        <p class="msg-time float-end m-0">
-                            14:48
-                        </p>
-                    </div>
-                </div>
-                <div class="msg-row">
-                    <div class="msg msg-self mb-1">
-                        <strong class="msg-user">
-                            Fillipe Vieira
-                        </strong>
-                        <p class="msg-body mb-0">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        </p>
-                        <p class="msg-time float-end m-0">
-                            14:48
-                        </p>
-                    </div>
-                </div>
-                <div class="msg-row">
-                    <div class="msg mb-1">
-                        <strong class="msg-user">
-                            Usuario2
-                        </strong>
-                        <p class="msg-body mb-0">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi quam iure facilis, laudantium quo tenetur!
-                        </p>
-                        <p class="msg-time float-end m-0">
-                            14:50
-                        </p>
-                    </div>
-                </div>
-                <div class="msg-row">
-                    <div class="msg msg-self mb-1">
-                        <strong class="msg-user">
-                            Fillipe Vieira
-                        </strong>
-                        <p class="msg-body mb-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quisquam architecto nihil laborum amet. Est optio totam quod error doloribus quo odio, eveniet asperiores distinctio placeat perferendis aut, deleniti sint.
-                        </p>
-                        <p class="msg-time float-end m-0">
-                            14:50
-                        </p>
-                    </div>
-                </div>
-                <div class="msg-row">
-                    <div class="msg mb-1">
-                        <strong class="msg-user">
-                            Usuario2
-                        </strong>
-                        <p class="msg-body mb-0">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi quam iure facilis, laudantium quo tenetur!
-                        </p>
-                        <p class="msg-time float-end m-0">
-                            14:50
-                        </p>
-                    </div>
-                </div>
-                <div class="msg-row">
-                    <div class="msg mb-1">
-                        <strong class="msg-user">
-                            Usuario3
-                        </strong>
-                        <p class="msg-body mb-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet unde similique rem, magni, minima sequi consequuntur pariatur porro consectetur aut laudantium. Aliquid, placeat error est deserunt similique exercitationem, ipsam minima quidem architecto eius saepe velit? Natus numquam eaque veniam repellat mollitia quisquam provident inventore labore ea, voluptatum placeat praesentium sapiente.
-                        </p>
-                        <p class="msg-time float-end m-0">
-                            14:52
-                        </p>
-                    </div>
-                </div>
-            </div>
+                <!-- Mensagens do chat sao adicionadas aqui -->
+            </div>            
             <div class="send-msg pt-2">
-                <div class="input-group">
+                <form id="msgSender" action="/" enctype="multipart/form-data" class="input-group">
                     <input class="form-control" type="text">
-                    <button class="button button-salmao">Enviar</button>
-                    <i class="bi bi-send"></i>
-                </div>
+                    <button type="submit" class="button button-azul-escuro">Enviar</button>                    
+                </form>
             </div>
         </div>    
     </section>

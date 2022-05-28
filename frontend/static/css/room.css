@@ -1,23 +1,24 @@
 main{
     width: 100%;
     height: 100%;
-    background-color: var(--azul-escuro);    
     margin: 0;
     padding: 0;
 }
+main>header{
+    background-color: var(--branco-gelo);
+}
 main>section{
-    background-color: var(--amarelo-claro);
     width: 100%;
     height: 85%;
     display: flex;
-    flex-direction: row;
+    flex-direction: row;  
+    background-color: var(--salmao);  
 }
 aside{
     height: 100%;
     width: 20%;
     padding: 1rem;
-    min-width: 300px;
-    background-color: var(--azul-escuro);
+    min-width: 300px;    
 }
 aside>.people-online{
     background-color: var(--branco-gelo);
@@ -25,7 +26,22 @@ aside>.people-online{
     border-radius: .8rem;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
+aside>.people-online>.user-online{
+    color: var(--azul-escuro);
+    border-bottom: 1px solid var(--salmao);
+    width: 100%;
+    padding: .2rem 0 .2rem 1rem;    
+    transition: 150ms all ease-in-out;
+    cursor: pointer;
+}
+aside>.people-online>.user-online:hover{
+    background-color: var(--azul-escuro);
+    color: var(--branco-gelo);
+}
+
 .chat-box{
     display: flex;
     flex-direction: column;
@@ -33,11 +49,9 @@ aside>.people-online{
     align-items: center;
     width: 80%;
     height: 100%;
-    background-color: var(--azul-escuro);    
     padding: 1rem;
 }
 .chat-msgs{
-    background-image: linear-gradient(to top, #909090, #ccc);
     width: 100%;
     height: 100%;
     border-radius: .8rem;
@@ -45,7 +59,7 @@ aside>.people-online{
     box-shadow: 0 0 1rem rgba(0,0,0,0.4);
     display: flex;
     flex-direction: column;
-    
+    background-color: var(--branco-gelo);
     overflow-y: auto;    
 }
 .msg-row{
@@ -65,17 +79,23 @@ aside>.people-online{
     float: left;
     width: fit-content;
     max-width: 65%;
-    background-color: #ff714a;
+    min-width: 20%;
+    background-color: #246b8a;
     color: var(--branco-gelo);
     border-radius: .8rem;
     padding: .5rem;    
     font-size: .8rem;
+    box-shadow: 0 .15rem .3rem rgba(0,0,0,0.4);
 }
 
 .msg-self{
     float: right !important;
-    background-color:#db5732 !important;    
+    background-color:#164C64 !important;    
 }
+
+
+
+
 
 /* ScrollBar */
 
@@ -86,7 +106,7 @@ aside>.people-online{
 
   /* Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
-    width: 16px;
+    width: 13px;
   }
 
   *::-webkit-scrollbar-track {
