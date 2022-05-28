@@ -8,6 +8,8 @@ from backend.services.chat import Chat
 
 import json
 
+
+
 room = Room()
 user = User()
 chat = Chat()
@@ -18,6 +20,7 @@ ROOM_ID = None
 
 def socketController(app, socket):
 
+    # Funçao que renderiza a pagina do chat.
     @app.route('/chat')
     def get_chat_page(username=None, user_id=None, room_id=None):
         global USERNAME, USER_ID, ROOM_ID
@@ -36,6 +39,8 @@ def socketController(app, socket):
         
         return render_template('room.html', username=USERNAME, user_id=USER_ID, room_id=ROOM_ID)
 
+
+    # Funcao que desloga o usuário.
     @app.route('/logout')
     def logout():
         time = f'{str(datetime.now().hour - 3).zfill(2)}:{str(datetime.now().minute).zfill(2)}'

@@ -19,6 +19,7 @@
         <form action="/login" method="post">
             <input class="input-text" type="text" name="username" id="username" placeholder="Username" autocomplete="off" required>
             <span id="alerta-caracteres" class="mt-2" style="color:var(--salmao); font-size:.8rem">* Mais que 5 caracteres.</span>
+            <span id="alerta-usuario-existente" class="mt-2" style="color:var(--salmao); font-size:.8rem" hidden>* Já existe um usuário com esse nome.</span>
             <button class="button button-azul-escuro disabled" type="submit" disabled>Entrar</button>
         </form>
     </section>

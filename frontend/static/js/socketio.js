@@ -196,14 +196,3 @@ $(document).ready(function(){
         chatMsg.scrollTop = chatMsg.scrollHeight;
     })
 })
-
-// Função responsável por adicionar mensagens a tela.
-function addMsg(data) {
-
-    
-}
-
-
-
-
-

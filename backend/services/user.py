@@ -5,7 +5,6 @@ class User:
     def __init__(self):
         self.db = db()
 
-
     def create_user(self, username):
         return self.db.set_user(username)      
 
