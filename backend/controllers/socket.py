@@ -1,5 +1,5 @@
-from flask import Flask, redirect, render_template, request, jsonify, url_for
-from flask_socketio import SocketIO, send, emit
+from flask import render_template, request, jsonify
+from flask_socketio import send, emit
 from datetime import datetime
 
 from backend.services.room import Room

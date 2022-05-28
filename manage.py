@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, json
+from flask import Flask
 from flask_socketio import SocketIO
 
 from backend.controllers.app import appController
