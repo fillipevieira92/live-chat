@@ -6,7 +6,6 @@ $('#username').on('keyup', function(){
             data:{'username':JSON.stringify(this.value)},
             dataType:'json',
             success:function(data){
-                console.log(data)
                 if (data.response == 'ok') {
                     $('.button').removeClass('disabled').prop('disabled', false);
                     $('#alerta-usuario-existente').prop('hidden', true);
@@ -23,6 +22,3 @@ $('#username').on('keyup', function(){
         $('#alerta-usuario-existente').prop('hidden', true)
     }
 });
-
-
-//$('.button').removeClass('disabled').prop('disabled', false);
