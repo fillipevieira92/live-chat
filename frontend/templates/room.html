@@ -14,8 +14,8 @@
 {% block content %}
 <main>
     <header align="center">
-        <button onclick="logout()" class="float-start button button-azul-escuro m-3 mb-0 p-4 pt-2 align-top pb-2">< Sair</button>
-        <img src="{{ url_for('static', filename='img/logo-fundo-branco.png') }}" width="120px" alt="">
+        <button id="logoutButton" onclick="logout()" class="float-start button button-azul-escuro m-3 mb-0 p-4 pt-2 align-top pb-2">< Sair</button>
+        <img src="{{ url_for('static', filename='img/logo-fundo-branco.png') }}" height="100%" alt="">
     </header>
     
     <input type="hidden" id="username" value="{{username}}">
