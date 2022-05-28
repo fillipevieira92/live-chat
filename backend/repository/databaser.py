@@ -32,11 +32,12 @@ class db:
     
     def update_room_out(self, room_id):
         self.cursor.execute(f"SELECT online FROM rooms WHERE id={room_id}")
-        try:
-            online = [row for row in self.cursor][0][0]
-        except:
+        
+        online = [row for row in self.cursor][0][0]
+        
+        if online == 1:
             self.cursor.execute(f"DELETE FROM rooms WHERE id={room_id}")
-            self.cursor.commit()
+            self.conn.commit()
             self.delete_messages(room_id)
         else:
             self.cursor.execute(f"UPDATE rooms SET online='{online-1}' WHERE id={room_id}")
@@ -90,5 +91,5 @@ class db:
     
     def delete_messages(self, room_id):
         self.cursor.execute(f"DELETE FROM chat WHERE id_room={room_id}")
-        self.cursor.commit()
+        self.conn.commit()
 

@@ -51,7 +51,12 @@ def socketController(app, socket):
     # Funçao que recebe novas conexoes ao socket.
     @socket.on('connect_event', namespace='/chat')
     def connect(data):
+        
         time = f'{str(datetime.now().hour - 3).zfill(2)}:{str(datetime.now().minute).zfill(2)}'
+
+        user_data = user.find_user_by_id(data['user_id'])
+        print('user_data -> ',user_data[-1])
+
         user.set_user_room(data['user_id'], data['room_id'])
 
         # Pegar o id da sala e retornar um emit() contendo o historico das mensagens apenas para quem esta se conectando.
@@ -62,7 +67,9 @@ def socketController(app, socket):
 
         # Enviando a mensagem para todos os usuarios que UserX se conectou.
         user.set_user_session(data['user_session'],data['user_id'])
-        send({"username":data['username'], "room_id":data['room_id'], "user_session":data['user_session'], "time":time, "msg":"Acabou de entrar."}, broadcast=True)
+        
+        if not user_data[-1]:
+            send({"username":data['username'], "room_id":data['room_id'], "user_session":data['user_session'], "time":time, "msg":"Acabou de entrar."}, broadcast=True)
 
         
 

@@ -30,7 +30,7 @@ $(document).ready(function(){
                 <strong class="">${data[i][0]}</strong>
             `
 
-            userOnline.setAttribute('class', 'user-online');
+            userOnline.setAttribute('class', `user-online ${data[i][0]}`);
             peopleOnline.appendChild(userOnline);        
         };
     });
