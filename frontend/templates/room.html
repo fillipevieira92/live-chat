@@ -14,8 +14,8 @@
 {% block content %}
 <main>
     <header align="center">
-        <button onclick="logout()" class="float-start button button-azul-escuro m-3 mb-0 p-4 pt-2 align-top pb-2">< Sair</button>
-        <img src="{{ url_for('static', filename='img/logo-fundo-branco.png') }}" width="120px" alt="">
+        <button id="logoutButton" onclick="logout()" class="float-start button button-azul-escuro m-3 mb-0 p-4 pt-2 align-top pb-2">< Sair</button>
+        <img src="{{ url_for('static', filename='img/logo-fundo-branco.png') }}" height="100%" alt="">
     </header>
     
     <input type="hidden" id="username" value="{{username}}">
@@ -32,10 +32,10 @@
             <div class="chat-msgs">
                 <!-- Mensagens do chat sao adicionadas aqui -->
             </div>            
-            <div class="send-msg pt-2">
+            <div class="send-msg p-2 pb-5">
                 <form id="msgSender" action="/" enctype="multipart/form-data" class="input-group">
-                    <input class="form-control" type="text">
-                    <button type="submit" class="button button-azul-escuro">Enviar</button>                    
+                    <input class="form-control" placeholder="Mensagem" autocomplete="off" type="text">
+                    <button type="submit" id="sendButton" class="button button-azul-escuro">Enviar</button>                    
                 </form>
             </div>
         </div>    

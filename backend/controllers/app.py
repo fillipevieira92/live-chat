@@ -1,10 +1,11 @@
-from flask import Flask, redirect, render_template, request, jsonify, url_for
+from flask import redirect, render_template, request, jsonify, url_for
 
 from backend.services.room import Room
 from backend.services.user import User
-from backend.controllers.socket import socketController
 
 import json
+
+
 
 room = Room()
 user = User()

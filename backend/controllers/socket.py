@@ -1,5 +1,5 @@
-from flask import Flask, redirect, render_template, request, jsonify, url_for
-from flask_socketio import SocketIO, send, emit
+from flask import render_template, request, jsonify
+from flask_socketio import send, emit
 from datetime import datetime
 
 from backend.services.room import Room
@@ -66,7 +66,7 @@ def socketController(app, socket):
 
         # Pegar o id da sala e retornar um emit() contendo o historico das mensagens apenas para quem esta se conectando.
         msg_list = chat.find_all_msgs(data['room_id'])
-        online_list = room.list_online_users(data['room_id'])
+        online_list = user.get_users_by_room(data['room_id'])
         emit('old_msgs', msg_list)
         emit('online_users', online_list)
 

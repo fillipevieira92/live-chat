@@ -58,3 +58,28 @@ table i{
     margin-top: 2rem;
     font-size: .8rem;    
 }
+
+
+@media screen and (max-width:450px) {
+    section{
+        width: 100vw;
+        height: 100vh;
+        box-shadow: none;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        padding:.5rem !important;
+    }
+    section>.container{
+        padding:0 !important;
+        min-width: 100% !important;
+        margin: 0 !important;
+        overflow-x: hidden;
+    }
+    section>.container>.rooms{
+        width: 100vw !important;
+        margin:0 !important;
+    }
+    main>section>.container>.rooms>tbody>tr{
+        margin: 0 !important;
+    }
+}

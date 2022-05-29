@@ -27,18 +27,12 @@
             <table class="table table-borderless rooms">
                 <thead>
                     <tr>
-                        <th class="text-center" scope="col" colspan="3">Salas disponíveis</th>
-                    </tr>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">NOME</th>
-                        <th style="text-align: right;" scope="col">Online</th>
-                    </tr>
+                        <th class="text-center" scope="col" colspan="2">Salas Disponíveis</th>
+                    </tr>                    
                 </thead>
                 <tbody>
                     {% for room in rooms_list %}
                     <tr id="{{room[0]}}" onclick="redirect(this.id)">
-                        <td>{{room[0]}}</td>
                         <td>{{room[1]}}</td>
                         <td style="text-align: right;">{{room[2]}}<i class="bi m-2 pb-2 bi-people-fill"></i></td>
                     </tr>                    
@@ -65,7 +59,7 @@
             <form action="/rooms" method="post">
                 <div class="modal-body">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control input-text" name="sala_nome" id="sala_nome" placeholder="Nome da sala" required>
+                        <input type="text" class="form-control input-text" name="sala_nome" id="sala_nome" placeholder="Nome da sala" required autocomplete="off">
                         <label for="sala_nome">Nome da sala</label>
                     </div>
                 </div>

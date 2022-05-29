@@ -14,7 +14,7 @@
 <main>
     <section class="login pb-3">
         <header class="logo">
-            <img src="{{ url_for('static', filename='img/logo-fundo-branco.png') }}" width="200" alt="">
+            <img id="logo-branco" src="{{ url_for('static', filename='img/logo-fundo-branco.png') }}" width="200" alt="">            
         </header>
         <form action="/login" method="post">
             <input class="input-text" type="text" name="username" id="username" placeholder="Username" autocomplete="off" required>
